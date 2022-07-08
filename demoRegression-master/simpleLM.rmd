@@ -40,11 +40,12 @@ plot(LENGTH~CHEST,data=bears)
 abline(simp)
 summary.lm(simp)
 ```
- The adjusted R-square for this model is 0.79. The model for neck had an adjusted R-square of 0.75.
+ The adjusted R-square for the CHEST model is 0.79. The model for the NECK model had an adjusted R-square of 0.75. The best model so far is the one based on CHEST
 
 ```{r}
 new <- data.frame(NECK=c(17,22,26))
 predict(chesty,new)
 predict(chesty,new,se.fit=TRUE)
 ```
+
 
