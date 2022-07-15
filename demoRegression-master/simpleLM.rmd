@@ -93,4 +93,4 @@ Based upon the adjusted R squared value, which is 0.5321 , HEADWTH is not the be
 
 ## SUMMARY
 
-Based upon the information presented above, the best model for predicting LENGTH, with an R squared value of 0.8434, is HEADLEN.
+Based upon the information presented above, the best model for predicting LENGTH, with an R squared value of 0.8434, is HEADLEN. 
