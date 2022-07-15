@@ -35,17 +35,62 @@ predict(simp,new,se.fit=TRUE)
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
 
 ```{r}
-chesty <- lm(LENGTH~NECK,data=bears)
+chest <- lm(LENGTH~CHEST,data=bears)
 plot(LENGTH~CHEST,data=bears)
-abline(simp)
-summary.lm(simp)
+abline(chest)
+summary.lm(chest)
 ```
  The adjusted R-square for the CHEST model is 0.79. The model for the NECK model had an adjusted R-square of 0.75. The best model so far is the one based on CHEST
 
+## Better Variables 
+
 ```{r}
-new <- data.frame(NECK=c(17,22,26))
-predict(chesty,new)
-predict(chesty,new,se.fit=TRUE)
+age <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(age)
+summary.lm(age)
+```
+Based upon adjusted R-squared value,which is 0.5073, AGE is not the best model.
+
+
+
+```{r}
+sex <- lm(LENGTH~SEX,data=bears)
+plot(LENGTH~SEX,data=bears)
+abline(sex)
+summary.lm(sex)
 ```
 
+Based upon adjusted R-squared value,which is -0.008373 , SEX is not the best model in predicting LENGTH.
 
+
+```{r}
+weight <- lm(LENGTH~WEIGHT,data=bears)
+plot(LENGTH~WEIGHT,data=bears)
+abline(weight)
+summary.lm(weight)
+```
+
+Based upon the adjusted R-squared value,which is 0.7423, WEIGHT is a very similar model to NECK, which means it is not the best for predicting LENGTH. 
+
+```{r}
+head <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(head)
+summary.lm(head)
+```
+Based upon the adjusted R-squared value,which is 0.8434, HEADLEN seems to be the best model for predicting LENGTH. 
+
+
+```{r}
+headw <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(headw)
+summary.lm(headw)
+```
+
+Based upon the adjusted R squared value, which is 0.5321 , HEADWTH is not the best model for predicting LENGTH. 
+
+## SUMMARY
+
+Based upon the information presented above, the best model for predicting LENGTH, with an R squared value of 0.8434, is HEADLEN.
